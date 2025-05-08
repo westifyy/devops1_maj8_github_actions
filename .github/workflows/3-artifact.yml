@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Skapar log.txt
-        run: # 1. skapa filen
+        run: touch log.txt # 1. skapa filen
       - name: Laddar upp loggfilen som artifact
-        uses: # 2a. vilken action kan användas här?
-        # 2b. vad heter denna sektion? 
+        uses: actions/upload-artifact@v4 # 2a. vilken action kan användas här?
+        with: # 2b. vad heter denna sektion? 
           name: loggfil
           path: log.txt
