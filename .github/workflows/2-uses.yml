@@ -7,6 +7,13 @@ jobs:
   list-files:
     runs-on: ubuntu-latest
     steps:
+      - name: Lista filer
+        uses: mirko-felice/list-files-action@v3.0.5
+        with:
+          repo: ${{ github.repository }}
+          path: "."
+          ext: ".yml"
+
       # 1. hur ser du till att repots filer finns tillgängliga?
       #    (tips: det finns en action från GitHub själva för detta)
       # 2. lista filerna i repot
@@ -15,6 +22,7 @@ jobs:
   print-message:
     runs-on: ubuntu-latest
     # 3. se till att detta jobb endast körs efter att list-files är klart
+    needs: list-files
     steps:
-      - name: Meddelande
-        run: echo "Detta körs efter list-files"
+    - name: Meddelande
+      run: echo "Detta körs efter list-files"
