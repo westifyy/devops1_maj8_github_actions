@@ -11,6 +11,7 @@ jobs:
         uses: mirko-felice/list-files-action@v3.0.5
         with:
           repo: ${{ github.repository }}
+          ref: ${{ github.ref }}
           path: "."
           ext: ".yml"
 
